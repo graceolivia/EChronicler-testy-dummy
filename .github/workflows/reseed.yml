@@ -23,7 +23,8 @@
 
 name: Reseed Database
 on: 
-  workflow_dispatch
+  push:
+    branches: [ main, NewGithubAction]
 
 jobs:
 
