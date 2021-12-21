@@ -1,7 +1,5 @@
 name: Reseed Database
-on: 
-  push:
-    branches: [ main, NewGithubAction]
+on: workflow_dispatch
 
 jobs:
 
