@@ -42,7 +42,7 @@ jobs:
         HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP_NAME: "e-chronicler"
       run: | 
-        ecto.drop 
-        ecto.create 
-        ecto.migrate 
-        run priv/repo/seeds.exs
+        heroku run ecto.drop 
+        heroku run ecto.create 
+        heroku run ecto.migrate 
+        heroku run priv/repo/seeds.exs
