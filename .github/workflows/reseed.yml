@@ -42,7 +42,6 @@ jobs:
         HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP_NAME: "e-chronicler"
       run: | 
-        heroku run -a e-chronicler ecto.drop 
-        heroku run -a e-chronicler ecto.create 
-        heroku run -a e-chronicler ecto.migrate 
-        heroku run -a e-chronicler priv/repo/seeds.exs
+        heroku pg:reset DATABASE --confirm e-chronicler
+        heroku run mix ecto.migrate -a e-chronicler
+        heroku run mix run priv/repo/seeds.exs -a e-chronicler
